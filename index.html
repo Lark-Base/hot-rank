@@ -1,54 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>亚马逊产品数据抓取插件</title>
+  <title>抖音热榜数据插件</title>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <main class="main p-3 pt-4">
-    <!-- 环境状态指示器 -->
-    <div id="environmentStatus" class="alert alert-info mb-3" style="display: none;">
-      <strong>环境状态:</strong> <span id="statusText">检查中...</span>
-    </div>
-    
-    <h4 class="mb-3">亚马逊产品数据抓取插件</h4>
-    
-    <form>
-      <div class="mb-3">
-        <label for="amazonUrl" class="form-label">亚马逊网站链接</label>
-        <input type="url" id="amazonUrl" class="form-control" placeholder="请输入亚马逊产品页面或分类页面链接">
-        <div class="form-text">支持亚马逊各国站点，如：amazon.com, amazon.sg, amazon.co.uk 等</div>
+  <!-- 背景装饰 -->
+  <div class="bg-decoration">
+    <div class="bg-circle bg-circle-1"></div>
+    <div class="bg-circle bg-circle-2"></div>
+    <div class="bg-circle bg-circle-3"></div>
+  </div>
+  
+  <main class="main">
+    <!-- 头部区域 -->
+    <div class="header-section">
+      <div class="logo-container">
+        <i class="fab fa-tiktok logo-icon"></i>
+        <h1 class="app-title">抖音热榜</h1>
+        <p class="app-subtitle">实时获取最新热门内容</p>
       </div>
       
-      <div class="mb-3">
-        <label for="maxProducts" class="form-label">最大抓取数量</label>
-        <select id="maxProducts" class="form-select">
-          <option value="20">20个产品</option>
-          <option value="50" selected>50个产品</option>
-          <option value="100">100个产品</option>
-          <option value="200">200个产品</option>
-        </select>
-      </div>
-      
-      <button class="btn btn-primary" type="button" id="startAmazonCrawl">
-        <span id="amazonCrawlText">开始抓取亚马逊产品</span>
-        <span id="amazonLoadingSpinner" class="spinner-border spinner-border-sm ms-2" style="display: none;"></span>
-      </button>
-    </form>
-    
-    <!-- 进度显示 -->
-    <div id="progressContainer" class="mt-3" style="display: none;">
-      <div class="progress">
-        <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%"></div>
-      </div>
-      <div id="progressText" class="mt-2 text-muted"></div>
+
     </div>
     
-    <!-- 结果显示 -->
-    <div id="resultContainer" class="mt-3" style="display: none;">
-      <div id="resultMessage" class="alert"></div>
+    <!-- 主功能卡片 -->
+    <div class="feature-card">
+      <div class="card-header">
+        <div class="card-icon">
+          <i class="fas fa-fire"></i>
+        </div>
+        <div class="card-title-section">
+          <h2 class="card-title">热榜数据获取</h2>
+          <p class="card-description">一键获取抖音实时热榜，自动创建多维表格</p>
+        </div>
+      </div>
+      
+      <div class="card-content">
+        <!-- 功能特性展示 -->
+        <div class="features-grid">
+          <div class="feature-item">
+            <i class="fas fa-bolt"></i>
+            <span>实时数据</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-table"></i>
+            <span>自动建表</span>
+          </div>
+        </div>
+        
+        <!-- 主操作按钮 -->
+        <button id="getDouyinHotList" class="main-action-btn">
+          <div class="btn-content">
+            <i class="fas fa-download btn-icon"></i>
+            <span id="douyinText" class="btn-text">获取抖音热榜</span>
+            <div id="douyinLoadingSpinner" class="loading-spinner" style="display: none;">
+              <i class="fas fa-spinner fa-spin"></i>
+            </div>
+          </div>
+        </button>
+        
+        <!-- 进度显示区域 -->
+        <div id="douyinProgressContainer" class="progress-section" style="display: none;">
+          <div class="progress-header">
+            <span class="progress-label">数据获取进度</span>
+            <span class="progress-percentage">0%</span>
+          </div>
+          <div class="progress-bar-container">
+            <div id="douyinProgressBar" class="progress-bar-fill" style="width: 0%"></div>
+          </div>
+          <div id="douyinProgressText" class="progress-text">准备中...</div>
+        </div>
+        
+        <!-- 结果显示区域 -->
+        <div id="douyinResultContainer" class="result-section" style="display: none;">
+          <div id="douyinResultMessage" class="result-message"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 底部信息 -->
+    <div class="footer-info">
+      <p class="footer-text">
+        <i class="fas fa-shield-alt"></i>
+        数据来源于公开API，仅供学习使用
+      </p>
     </div>
   </main>
   

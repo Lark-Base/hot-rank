@@ -1,8 +1,8 @@
 {
-  "name": "HTML Template",
+  "name": "Douyin Hot List Plugin",
   "version": "1.0.0",
   "type": "module",
-  "description": "HTML TypeScript template, using Vite bundler",
+  "description": "抖音热榜数据插件，用于获取最新抖音热榜数据并创建多维表格",
   "scripts": {
     "dev": "vite",
     "start": "npm run dev",
@@ -21,15 +21,9 @@
   },
   "dependencies": {
     "@lark-base-open/js-sdk": "^0.5.0",
-    "@lark-base-open/node-sdk": "^1.0.1",
-    "@types/node-fetch": "^2.6.12",
     "bootstrap": "^5.3.3",
-    "i18next": "^23.5.1",
-    "i18next-browser-languagedetector": "^7.1.0",
     "jquery": "^3.7.1",
-    "jquery-i18next": "^1.2.1",
     "node-fetch": "^3.3.2",
-    "reset-css": "^5.0.1",
-    "translater.js": "^1.0.12"
+    "reset-css": "^5.0.1"
   }
 }
